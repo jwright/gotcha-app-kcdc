@@ -1,21 +1,38 @@
 import React from "react";
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const styles = StyleSheet.create({
+  button: {
+    alignItems: "center",
+    backgroundColor: "#DDDDDD",
+    padding: 10
+  },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "stretch",
+    justifyContent: "center",
   },
 });
 
 const ArenaCard = ({ arena }) => {
-  const { locationName } = arena;
+  const { locationName,
+          streetAddress1,
+          streetAddress2,
+          city,
+          state,
+          zipCode } = arena;
 
   return (
     <View style={styles.container}>
-      <Text>{locationName}</Text>
+      <TouchableOpacity style={styles.button} onPress={() => {
+        console.log("You selected Arena", id)
+      }}>
+        <Text>{locationName}</Text>
+        <Text>{streetAddress1}</Text>
+        {streetAddress2 && <Text>{streetAddress2}</Text>}
+        <Text>{city}, {state} {zipCode}</Text>
+      </TouchableOpacity>
     </View>
   )
 }
