@@ -1,19 +1,13 @@
 import React from "react"
-import { StyleSheet, Text, View } from 'react-native';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+import ArenaCard from "../ArenaCard"
 
 const Arenas = ({ arenas }) => (
-  <View style={styles.container}>
-    <Text>You found {arenas.length} arenas!</Text>
-  </View>
+  <React.Fragment>
+    {arenas.map((arena) => (
+      <ArenaCard key={arena.id} arena={arena} />
+    ))}
+  </React.Fragment>
 )
 
 export default Arenas;
