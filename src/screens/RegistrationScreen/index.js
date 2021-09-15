@@ -1,7 +1,10 @@
 import React from "react"
 import { StyleSheet, Text, View } from "react-native"
+import { useMutation } from "@apollo/client"
 
 import RegistrationForm from "../../components/RegistrationForm";
+
+import RegisterPlayerMutation from "../../mutations/RegisterPlayer"
 
 const styles = StyleSheet.create({
   container: {
@@ -16,11 +19,17 @@ const styles = StyleSheet.create({
   }
 });
 
-const RegistrationScreen = () => (
-  <View style={styles.container}>
-    <Text style={styles.header}>Player Registration</Text>
-    <RegistrationForm onRegistration={(player) => console.log("Register", player)} />
-  </View>
-)
+const RegistrationScreen = () => {
+  const [registerPlayer, { data }] = useMutation(RegisterPlayerMutation);
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.header}>Player Registration</Text>
+      <RegistrationForm onRegistration={(player) => {
+        registerPlayer({ variables: player });
+      }} />
+    </View>
+  )
+}
 
 export default RegistrationScreen;
