@@ -5,6 +5,7 @@ import { ApolloProvider } from '@apollo/client'
 
 import ArenaListScreen from "./screens/ArenaListScreen";
 import HomeScreen from "./screens/HomeScreen";
+import MatchScreen from "./screens/MatchScreen";
 import RegistrationScreen from "./screens/RegistrationScreen";
 
 import client from "./helpers/client"
@@ -17,6 +18,7 @@ const App = () => (
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="ArenaList" component={ArenaListScreen} options={{ headerShown: false, title: "Select an Arena" }} />
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false, title: "Gotcha!" }} />
+        <Stack.Screen name="Match" component={MatchScreen} options={{ headerShown: false, title: "Match" }} />
         <Stack.Screen name="Registration" component={RegistrationScreen} options={{ headerShown: false, title: "Register Player" }} />
       </Stack.Navigator>
     </NavigationContainer>
