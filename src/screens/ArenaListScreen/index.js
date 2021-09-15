@@ -5,7 +5,7 @@ import Arenas from "../../components/Arenas"
 
 import ArenasQuery from "../../queries/Arenas";
 
-const ArenaListScreen = ({ route }) => {
+const ArenaListScreen = ({ route, navigation }) => {
   const { location: { latitude, longitude } } = route.params;
 
   const { loading, error, data } = useQuery(ArenasQuery, {
@@ -16,7 +16,7 @@ const ArenaListScreen = ({ route }) => {
 
   if (loading || error) { return null; }
 
-  return <Arenas arenas={data.arenas} />;
+  return <Arenas arenas={data.arenas} navigation={navigation} />;
 }
 
 export default ArenaListScreen;

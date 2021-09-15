@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const ArenaCard = ({ arena }) => {
+const ArenaCard = ({ arena, navigation }) => {
   const { locationName,
           streetAddress1,
           streetAddress2,
@@ -26,7 +26,7 @@ const ArenaCard = ({ arena }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.button} onPress={() => {
-        console.log("You selected Arena", id)
+        navigation.navigate("Registration")
       }}>
         <Text>{locationName}</Text>
         <Text>{streetAddress1}</Text>
